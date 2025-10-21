@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+sqlalchemy
+pyjwt
+passlib[bcrypt]
+requests
+pytest
+pytest-cov

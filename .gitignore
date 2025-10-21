@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.db
+.coverage
+*.sqlite3
+.pytest_cache/
