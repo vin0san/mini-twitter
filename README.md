@@ -1,6 +1,8 @@
 # Mini Twitter API
 
-A FastAPI-based backend for a Twitter-like social media application. This project implements user authentication, tweet CRUD operations, likes, follows, a paginated feed, user profiles, and tweet search. It uses SQLAlchemy for database interactions with SQLite and JWT for secure authentication. The project includes comprehensive unit tests with 91% code coverage.
+A **FastAPI-based backend** for a Twitter-like social media application.  
+It implements user authentication, tweet CRUD operations, likes, follows, a paginated feed, user profiles, and tweet search.  
+Built using **FastAPI**, **SQLAlchemy**, and **JWT**, with over **90% test coverage** using `pytest`.
 
 ## Features
 - **User Management**: Register new users and login with JWT tokens.
@@ -8,7 +10,7 @@ A FastAPI-based backend for a Twitter-like social media application. This projec
 - **Likes**: Like/unlike tweets and retrieve users who liked a tweet.
 - **Follows**: Follow/unfollow users with duplicate prevention.
 - **Feed**: Paginated feed of tweets from followed users.
-- **User Profile**: Retrieve user details including tweet count, follower count, and following count.
+- **User Profile**: Retrieve user details, including tweet count, follower count, and following count.
 - **Tweet Search**: Search tweets by keyword with pagination and like counts.
 - **Security**: JWT-based authentication with token expiration and password hashing (bcrypt).
 - **Testing**: 16 passing unit tests covering all endpoints, with 91% code coverage.
@@ -40,21 +42,24 @@ A FastAPI-based backend for a Twitter-like social media application. This projec
 
 ## API Endpoints
 
-- `POST /register`: Register a user
-- `POST /login`: Get JWT token
-- `POST /tweets`: Create a tweet
-- `GET /tweets`: Get all tweets (paginated)
-- `GET /tweets/me`: Get my tweets (paginated)
-- `PUT /tweets/{id}`: Update a tweet
-- `DELETE /tweets/{id}`: Delete a tweet
-- `POST /like`: Like a tweet
-- `DELETE /like/{tweet_id}`: Unlike a tweet
-- `GET /tweets/{id}/likes`: Get users who liked a tweet
-- `POST /follow`: Follow a user
-- `DELETE /follow/{user_id}`: Unfollow a user
-- `GET /feed`: Get followed users' tweets (paginated)
-- `GET /users/{user_id}`: Get user profile
-- `GET /tweets/search`: Search tweets by keyword
+| Method   | Endpoint             | Description                |
+| -------- | -------------------- | -------------------------- |
+| `POST`   | `/register`          | Register new user          |
+| `POST`   | `/login`             | Login and get JWT token    |
+| `POST`   | `/tweets`            | Create tweet               |
+| `GET`    | `/tweets`            | Get all tweets (paginated) |
+| `GET`    | `/tweets/me`         | Get my tweets              |
+| `PUT`    | `/tweets/{id}`       | Update tweet               |
+| `DELETE` | `/tweets/{id}`       | Delete tweet               |
+| `POST`   | `/like`              | Like tweet                 |
+| `DELETE` | `/like/{tweet_id}`   | Unlike tweet               |
+| `GET`    | `/tweets/{id}/likes` | Get who liked tweet        |
+| `POST`   | `/follow`            | Follow user                |
+| `DELETE` | `/follow/{user_id}`  | Unfollow user              |
+| `GET`    | `/feed`              | Get followed users’ tweets |
+| `GET`    | `/users/{user_id}`   | Get user profile           |
+| `GET`    | `/tweets/search`     | Search tweets              |
+
 
 ## Running the App
 
@@ -73,7 +78,11 @@ In a different Terminal, run:
     
     pytest tests/test_api.py -v
 
-OR, Test manualy with the help of Swagger UI.
+View coverage report:
+
+    pytest --cov=app --cov-report=term-missing
+
+OR, test manually with the help of Swagger UI.
 
 ## Project Structure
 
@@ -100,7 +109,7 @@ mini_twitter/
 
 - **Security**: Uses a hardcoded SECRET_KEY for development.
 - **Database**: SQLite for simplicity.
-- **Version 2 Plans**: Integrate AI/ML for tweet toxicity detection using Hugging Face models and Recommend Tweets Based on intrests.
+- **Version 2 Plans**: Integrate AI/ML for tweet toxicity detection using Hugging Face models and Recommend Tweets Based on interests.
 - **Coverage**: 91% achieved with pytest-cov. Missing branches are error handling paths (to be tested in future updates).
 - **Contributions**: Feel free to fork and submit pull requests!
 
